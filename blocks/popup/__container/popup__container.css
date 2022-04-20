@@ -1,0 +1,21 @@
+.popup__container{
+  width: 100%;
+
+  max-width: 430px;
+  min-height: 330px;
+}
+
+@media screen and (max-width:426px) {
+  .popup__container{
+    max-width: 282px;
+    min-height: 322px;
+    margin: 0 auto;
+  }
+}
+@media screen and (max-width:340px) {
+  .popup__container{
+    max-width: 282px;
+    min-height: 322px;
+    margin: 0;
+  }
+}

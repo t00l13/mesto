@@ -1,0 +1,10 @@
+.card__wrapper{
+  border-radius: 0 0 10px 10px;
+  background-color: #fff;
+  color: #000;
+  max-height: 79px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 15px 31px 21px;
+}

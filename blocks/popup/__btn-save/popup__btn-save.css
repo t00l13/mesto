@@ -1,0 +1,16 @@
+.popup__btn-save{
+  margin-top: 48px;
+  max-width: 358px;
+  min-height: 50px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+}
+
+.popup__btn-save:hover{
+  opacity: 0.8;
+}
