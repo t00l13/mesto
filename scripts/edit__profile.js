@@ -9,10 +9,10 @@ let nameInput=document.querySelector('#name');//input имя
 let jobInput=document.querySelector('#job');//input профессия
 
 function openPopup(){
-  popupElement.classList.remove('popup__opened');
+  popupElement.classList.remove('popup_opened');
 }
 function closePopup(){
-  popupElement.classList.add('popup__opened');
+  popupElement.classList.add('popup_opened');
 }
 
 editProfile.addEventListener('click', openPopup);
