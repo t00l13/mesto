@@ -7,5 +7,10 @@
   display: flex;
   flex-direction: column;
   padding: 34px 36px 37px 36px;
-  width: calc(100% - 38px);
+}
+
+@media screen and (max-width:426px) {
+  .popup__form{
+    padding: 25px 22px;
+  }
 }

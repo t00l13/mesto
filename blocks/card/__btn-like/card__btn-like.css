@@ -6,7 +6,8 @@
   background-size: contain;
   background-repeat: no-repeat;
   border: 0;
+  cursor: pointer;
 }
 .card__btn-like:hover{
-    background-image: url(../../../images/like__hover.svg);
+  opacity: 0.6;
 }
