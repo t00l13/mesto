@@ -3,3 +3,9 @@
   margin: 0 auto;
   padding-top: 47px;
 }
+
+@media screen and (max-width:426px) {
+  .gallery{
+    padding-top: 36px;
+  }
+}
