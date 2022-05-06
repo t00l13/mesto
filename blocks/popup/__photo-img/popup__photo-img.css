@@ -1,0 +1,8 @@
+.popup__photo-img{
+  max-width: 75vw;
+  max-height: 75vh;
+  margin-bottom: 10px;
+  border-radius: 0;
+  object-fit: cover;
+  overflow:hidden;
+}
