@@ -25,8 +25,8 @@ let jobInput=document.querySelector('#job');//input профессия
 let titleInput=document.querySelector('#title');//input название изображения
 let linkInput=document.querySelector('#link');//input ссылка изображение
 
-let photoImage=popupShowPhoto.querySelector('.popup__photo-img');//фото в большом размере
-let photoTitle=popupShowPhoto.querySelector('.popup__photo-title');//подпись к фото
+let photoImage=popupShowPhoto.querySelector('.popup_photo-img');//фото в большом размере
+let photoTitle=popupShowPhoto.querySelector('.popup_photo-title');//подпись к фото
 
 let formEditElement=popupEdit.querySelector('.popup__form');//форма попапа редактирования
 let formAddElement=popupAdd.querySelector('.popup__form');//форма попапа добавления карточки

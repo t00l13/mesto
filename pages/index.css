@@ -45,6 +45,6 @@
 @import url('../blocks/popup/__input/popup__input.css');
 @import url('../blocks/popup/__btn-save/popup__btn-save.css');
 @import url('../blocks/popup/_opened/popup_opened.css');
-@import url('../blocks/popup/__photo/popup__photo.css');
-@import url('../blocks/popup/__photo-img/popup__photo-img.css');
-@import url('../blocks/popup/__photo-title/popup__photo-title.css');
+@import url('../blocks/popup/_photo/popup_photo.css');
+@import url('../blocks/popup/_photo-img/popup_photo-img.css');
+@import url('../blocks/popup/_photo-title/popup_photo-title.css');
