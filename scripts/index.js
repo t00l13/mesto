@@ -8,7 +8,7 @@ const cardTemplate = document.querySelector('.card-template').content;//конт
 
 const buttonEditProfile = document.querySelector('.profile__button-edit');//кнопка edit
 const buttonAddCard = document.querySelector('.profile__button-add');//кнопка добавить
-const popupClose = document.querySelector('.popup__btn-close');//кнопка закрыть
+//const popupClose = document.querySelector('.popup__btn-close');//кнопка закрыть
 
 const profileName = document.querySelector('.profile__name');//поле имени
 const profileJob = document.querySelector('.profile__job');//поле профессии
@@ -91,12 +91,12 @@ const openPopup = (popup) => {
   popup.classList.add('popup_opened');                //открытие попапа
 };
 const closePopup = (popup) => {
-  popup.classList.remove('popup_opened');             //заркрыие попапа
+  popup.classList.remove('popup_opened');       //заркрыие попапа
 };
 popups.forEach((popup) => {
   popup.addEventListener('click', (evt) => {
     if (evt.target.classList.contains('popup_opened')) {
-      closePopup(popup);                                      //закрытие попапа
+      closePopup(popup);                            //закрытие попапа
     };
     if (evt.target.classList.contains('popup__btn-close')) {
       closePopup(popup);
@@ -107,12 +107,12 @@ popups.forEach((popup) => {
 //
 //* ПОПАП ПРИ ОТКРЫТИИ *//
 //
-const handleSubmitPopupEdit = () =>{
+const handleOpenPopupEdit = () =>{
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
   openPopup(popupEditProfile);
 };
-const handleSubmitPopupAdd = () =>{
+const handleOpenPopupAdd = () =>{
   openPopup(popupAddPhoto);
   formPopupAdd.reset();
 };
@@ -136,7 +136,6 @@ const handleSubmitFormAdd = (evt) =>{
   titleInput.value='';
   linkInput.value='';
   closePopup(popupAddPhoto);
-
 };
 
 //
@@ -146,10 +145,9 @@ const handleSubmitFormAdd = (evt) =>{
 formEditElement.addEventListener('submit', handleSubmitFormEdit);
 formAddElement.addEventListener('submit', handleSubmitFormAdd);
 
-buttonEditProfile.addEventListener('click', handleSubmitPopupEdit);
-buttonAddCard.addEventListener('click', handleSubmitPopupAdd);
+buttonEditProfile.addEventListener('click', handleOpenPopupEdit);
+buttonAddCard.addEventListener('click', handleOpenPopupAdd);
 
-popupClose.addEventListener('click', closePopup);
 
 
 loadCards(initialCards);
