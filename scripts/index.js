@@ -1,3 +1,14 @@
+//
+//* ОБЪЕКТ ДЛЯ ВАЛИДАЦИИ ФОРМ  *
+//
+const validateObject = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__btn-save',
+  inactiveButtonClass: 'popup__btn-save_disable',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__input-error_active'
+};
 
 const popup = document.querySelector('.popup');// попап
 const popups = document.querySelectorAll('.popup');//все попапы
@@ -32,6 +43,7 @@ const photoTitle = popupShowPhoto.querySelector('.popup__photo-title');//под�
 
 const formEditElement = popupEditProfile.querySelector('.popup__form');//форма попапа редактирования
 const formAddElement = popupAddPhoto.querySelector('.popup__form');//форма попапа добавления карточки
+
 
 
 //
@@ -88,11 +100,16 @@ const addCard = ( )=>{
 //* ФУНКЦИОНАЛ ОТКРЫТИЯ И ЗАКРЫТИЯ ПОПАПА *//
 //
 const openPopup = (popup) => {
-  popup.classList.add('popup_opened');                //открытие попапа
+  popup.classList.add('popup_opened');
+  deleteValidationError (popup, validateObject);
+  document.addEventListener('keydown', handleEscapeDown);           //открытие попапа
 };
 const closePopup = (popup) => {
-  popup.classList.remove('popup_opened');       //заркрыие попапа
+  popup.classList.remove('popup_opened');
+  deleteValidationError (popup, validateObject);
+  document.removeEventListener('keydown', handleEscapeDown);     //заркрыие попапа
 };
+// закрытие попапа через клик по области и по кнопке btn-close
 popups.forEach((popup) => {
   popup.addEventListener('click', (evt) => {
     if (evt.target.classList.contains('popup_opened')) {
@@ -101,8 +118,17 @@ popups.forEach((popup) => {
     if (evt.target.classList.contains('popup__btn-close')) {
       closePopup(popup);
     };
-  })
+  });
 });
+
+// * ФУНКЦИЯ ЗАКРЫТИЯ ПОПАПА ЧЕРЕЗ ESCAPE *
+function handleEscapeDown(evt) {
+  //если нажата клавиша esc
+  if (evt.key === 'Escape') {
+    //вызов функции closePopup
+    closePopup(document.querySelector('.popup_opened'));
+  }
+}
 
 //
 //* ПОПАП ПРИ ОТКРЫТИИ *//
@@ -138,6 +164,7 @@ const handleSubmitFormAdd = (evt) =>{
   closePopup(popupAddPhoto);
 };
 
+
 //
 //* СЛУШАТЕЛИ *//
 //
@@ -151,3 +178,4 @@ buttonAddCard.addEventListener('click', handleOpenPopupAdd);
 
 
 loadCards(initialCards);
+enableValidation(validateObject);
