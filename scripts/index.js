@@ -10,10 +10,9 @@ const validateObject = {
   errorClass: 'popup__input-error_active'
 };
 
-const popup = document.querySelector('.popup');// попап
 const popups = document.querySelectorAll('.popup');//все попапы
 
-const gallery = document.querySelector('.gallery__list');//галлерея карточек
+const placesWrap = document.querySelector('.gallery__list');//галлерея карточек
 const cardTemplate = document.querySelector('.card-template').content;//контейнер карточки
 
 
@@ -51,7 +50,7 @@ const formAddElement = popupAddPhoto.querySelector('.popup__form');//форма 
 //
 
 const createCardElement = ({name,link}) => {
-  const newCard=cardTemplate.querySelector('.card').cloneNode(true);      //* карточка(template) *//
+  const newCard = cardTemplate.querySelector('.card').cloneNode(true);      //* карточка(template) *//
 
   const image = newCard.querySelector('.card__image');
   image.alt = name;
@@ -82,7 +81,7 @@ const createCardElement = ({name,link}) => {
 }
 
 const loadCards = (cards)=> (
-  cards.reverse().forEach((card) => gallery.append(createCardElement(card)))       //* рендеринг карточек из массива *//
+  cards.reverse().forEach((card) => placesWrap.append(createCardElement(card)))       //* рендеринг карточек из массива *//
 );
 
 //
@@ -93,7 +92,7 @@ const addCard = ( )=>{
     name: titleInput.value,
     link: linkInput.value
   };
-  gallery.prepend(createCardElement(addNewCard));
+  placesWrap.prepend(createCardElement(addNewCard));
 };
 
 //
@@ -112,10 +111,7 @@ const closePopup = (popup) => {
 // закрытие попапа через клик по области и по кнопке btn-close
 popups.forEach((popup) => {
   popup.addEventListener('click', (evt) => {
-    if (evt.target.classList.contains('popup_opened')) {
-      closePopup(popup);                            //закрытие попапа
-    };
-    if (evt.target.classList.contains('popup__btn-close')) {
+    if (evt.target.classList.contains('popup_opened') || evt.target.classList.contains('popup__btn-close')) {    //закрытие попапа
       closePopup(popup);
     };
   });
@@ -158,10 +154,9 @@ const handleSubmitFormEdit = (evt)=>{
 //
 const handleSubmitFormAdd = (evt) =>{
   evt.preventDefault();
-  addCard();
-  titleInput.value='';
-  linkInput.value='';
-  closePopup(popupAddPhoto);
+  addCard(); //добавление карточки
+  formPopupAdd.reset();  //очистка инпутов через reset
+  closePopup(popupAddPhoto); //закрытие попапа
 };
 
 
