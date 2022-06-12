@@ -2,7 +2,7 @@
 
 # Проект: Место
 
-Проектная работа 4 для ЯндексПрактикум выполнена в форме лендинга.
+Проектная работа 7 для ЯндексПрактикум выполнена в форме лендинга.
 ## Стек
 * HTML
 * CSS
@@ -35,7 +35,7 @@ https://t00l13.github.io/mesto/
 # Mesto
 ---
 
-Project work 4 for Yandex Practicum was made in the form of a landing page .
+Project work 7 for Yandex Practicum was made in the form of a landing page .
 
 ## Stack
 * HTML
