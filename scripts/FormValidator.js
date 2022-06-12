@@ -57,7 +57,7 @@ export class FormValidator {
             // иначе сделай кнопку активной
             buttonElement.removeAttribute('disabled');
             buttonElement.classList.remove(this._inactiveButtonClass);
-        }
+        } 
     };
 
     //* СЛУШАТЕЛИ input'ов *
