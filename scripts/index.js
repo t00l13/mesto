@@ -40,16 +40,22 @@ function showPopupImage(name, link) {
 //* ФУНКЦИЯ ДОБАВЛЕНИЯ КАРТОЧКИ*//
 //
 function handleAddCard(evt) {
-
   const NewCard = {
     name: titleInput.value,
     link: linkInput.value
   };
 
-  placesWrap.prepend(new Card(NewCard, '#card', showPopupImage).generateCard());
+  placesWrap.prepend(createCard(NewCard));
 
 }
 
+//
+//* ФУНКЦИЯ СОЗДАНИЯ НОВОЙ КАРТОЧКИ */
+//
+function createCard(item){
+
+  return new Card(item, '#card', showPopupImage).generateCard();
+}
 
 
 //
@@ -131,10 +137,7 @@ buttonAddCard.addEventListener('click', handleOpenPopupAdd);
 
 
 initialCards.forEach(item => {
-  const card = new Card(item, '#card', showPopupImage);
-  const newCard = card.generateCard();
-
-  placesWrap.append(newCard);
+  placesWrap.prepend(createCard(item));
 })
 
 //ВКЛ ВАЛИДАЦИЯ НА ПОПАП ДОБАВЛЕНИЯ КАРТОЧКИ

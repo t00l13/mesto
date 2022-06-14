@@ -18,33 +18,35 @@ export class Card {
 
     generateCard() {
         this._card = this._getTemplate();
+        this._likeButton = this._card.querySelector('.card__btn-like');
+        this._trashButton = this._card.querySelector('.card__btn-trash');
+        this._cardImage = this._card.querySelector('.card__image');
         this._setEventListeners();
 
         this._card.querySelector('.card__title').textContent = this._name;
 
-        const cardImage = this._card.querySelector('.card__image');
-        cardImage.src = this._link;
-        cardImage.alt = this._name;
+        this._cardImage.src = this._link;
+        this._cardImage.alt = this._name;
 
         return this._card;
     }
 
     _setEventListeners() {
-        this._card.querySelector('.card__image').addEventListener('click', () => {
+        this._cardImage.addEventListener('click', () => {
             this._showPopup(this._name, this._link);
         });
 
-        this._card.querySelector('.card__btn-like').addEventListener('click', () => {
+        this._likeButton.addEventListener('click', () => {
             this._handleLikeCard();
         });
 
-        this._card.querySelector('.card__btn-trash').addEventListener('click', () => {
+        this._trashButton.addEventListener('click', () => {
             this._handleTrashCard();
         });
     }
 
     _handleLikeCard() {
-        this._card.querySelector('.card__btn-like').classList.toggle('card__btn-like_active');
+        this._likeButton.classList.toggle('card__btn-like_active');
     }
 
     _handleTrashCard() {

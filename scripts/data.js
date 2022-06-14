@@ -24,6 +24,30 @@ const initialCards = [
     {
       name: 'Байкал',
       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+    },
+    {
+      name: 'ТУ',
+      link: 'https://i.ibb.co/ySQmBPn/pic6.png'
+    },
+    {
+      name: 'БО',
+      link: 'https://i.ibb.co/7ps89XS/pic5.png'
+    },
+    {
+      name: 'РА',
+      link: 'https://i.ibb.co/pwHXYXj/pic4.png'
+    },
+    {
+      name: 'У',
+      link: 'https://i.ibb.co/9qjxThd/pic3.png'
+    },
+    {
+      name: 'ОЧ',
+      link: 'https://i.ibb.co/Gc0Ympr/pic2.png'
+    },
+    {
+      name: 'Х',
+      link: 'https://i.ibb.co/rxMXPKR/pic1.png'
     }
   ];
 
