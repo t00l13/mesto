@@ -1,0 +1,39 @@
+{
+  "name": "yandex_practikum",
+  "version": "0.0.1",
+  "description": "Проектная работа 7 для ЯндексПрактикум выполнена в форме лендинга. ## Стек * HTML * CSS * JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack serve",
+    "deploy": "gh-pages -d dist",
+    "predeploy": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/t00l13/mesto.git"
+  },
+  "author": "Anatoly Borodinov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/t00l13/mesto/issues"
+  },
+  "homepage": "https://github.com/t00l13/mesto#readme",
+  "devDependencies": {
+    "@babel/core": "^7.18.5",
+    "@babel/preset-env": "^7.18.2",
+    "autoprefixer": "^10.4.7",
+    "babel-loader": "^8.2.5",
+    "css-loader": "^6.7.1",
+    "cssnano": "^5.1.12",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.1",
+    "postcss-loader": "^7.0.0",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.9.2"
+  },
+  "dependencies": {
+    "core-js": "^3.23.2"
+  }
+}

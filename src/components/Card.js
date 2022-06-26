@@ -1,4 +1,4 @@
-export class Card {
+export default class Card {
     constructor(data, templateSelector, showFunction) {
         this._name = data.name;
         this._link = data.link;
@@ -18,6 +18,7 @@ export class Card {
 
     generateCard() {
         this._card = this._getTemplate();
+        
         this._likeButton = this._card.querySelector('.card__btn-like');
         this._trashButton = this._card.querySelector('.card__btn-trash');
         this._cardImage = this._card.querySelector('.card__image');
@@ -54,4 +55,3 @@ export class Card {
         this._card = null;
     }
 };
-
