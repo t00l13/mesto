@@ -1,8 +1,8 @@
 export default class Card {
     constructor({data, showFunction}, templateSelector) {
+        this._templateSelector = templateSelector;
         this._name = data.name;
         this._link = data.link;
-        this._templateSelector = templateSelector;
         this._showPopup = showFunction;
     }
 

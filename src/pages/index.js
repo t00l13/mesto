@@ -27,6 +27,13 @@ function handlePopupProfile(inputsData) {
   popupWithProfile.close();
 }
 
+function handlePopupAddCard(inputsData) {
+  console.log(cardList);
+  cardList.addItem(createCard(inputsData));
+  popupWithCard.close();
+}
+
+
 function handleTextInput() {
   const userData = userInfo.getUserInfo();
   popupProfileInputs.forEach(input => {
@@ -41,22 +48,17 @@ function createCard(dataCard) {
   return newCard;
 }
 
-function handlePopupAddCard(inputsData) {
-  cardList.addItem(createCard(inputsData));
-  popupWithCard.close();
-}
-
 //СЛУШАТЕЛИ
 
 buttonEditProfile.addEventListener('click', () => {
   popupWithProfile.open();
   handleTextInput();
-  validFormPopupEditProfile.resetValidationState();
+  validFormPopupEditProfile.deleteValidationError();
 });
 
 buttonAddCard.addEventListener('click', () => {
   popupWithCard.open();
-  validFormPopupAddPhoto.resetValidationState();
+  validFormPopupAddPhoto.deleteValidationError();
 });
 
 const cardList = new Section(

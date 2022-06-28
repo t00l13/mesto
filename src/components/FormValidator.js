@@ -1,4 +1,4 @@
-// --- КЛАСС ВАЛИДАЦИИ ФОРМ ---
+// КЛАСС ВАЛИДАЦИИ
 
 export default class FormValidator {
   constructor(config, popupSelector) {
@@ -11,8 +11,9 @@ export default class FormValidator {
     this._formElement = document.querySelector(popupSelector);
   }
 
-  //метод появления сообщения об ошибке
+  //приватный метод showInputError ПОКАЗЫВАЕТ СООБЩЕНИЕ ОБ ОШИБКЕ *
   _showInputError(inputElement, errorMessage) {
+    //находим элемент ошибки в форме
     const errorElement = this._formElement.querySelector(`#${inputElement.id}-error`);
 
     inputElement.classList.add(this._inputErrorClass);
@@ -20,8 +21,9 @@ export default class FormValidator {
     errorElement.classList.add(this._errorClass);
   }
 
-  //метод скрытия сообщения об ошибке
+  //приватный метод hideInputError СКРЫВАЕТ СООБЩЕНИЕ ОБ ОШИБКЕ *
   _hideInputError(inputElement) {
+    //находим элемент ошибки в форме
     const errorElement = this._formElement.querySelector(`#${inputElement.id}-error`);
 
     inputElement.classList.remove(this._inputErrorClass);
@@ -30,7 +32,7 @@ export default class FormValidator {
   }
 
 
-  //метод управления сообщениями об ошибках
+  //УПРАВЛЕНИЕ СООБЩЕНИЯМИ ОШИБОК
   _checkInputValidity(inputElement) {
     if(inputElement.validity.valid) {
       this._hideInputError(inputElement);
@@ -39,7 +41,7 @@ export default class FormValidator {
     }
   }
 
-  //метод проверки на невалидные поля
+  //ПРОВЕРКА ВАЛИДНОСТИ полей
   _hasInvalidInput(inputList) {
     return inputList.some(inputElement => {
       return !inputElement.validity.valid;
@@ -47,7 +49,7 @@ export default class FormValidator {
   }
 
 
-  //метод включения/выключения кнопки submit в форме
+    //* ПОВЕДЕНИЕ КНОПКИ submit ПРИ ВАЛИДНОСТИ И НЕВАЛИДНОСТИ *
   _toggleButtonState(inputList, buttonElement) {
     if(this._hasInvalidInput(inputList)) {
       buttonElement.setAttribute('disabled', true);
@@ -58,7 +60,7 @@ export default class FormValidator {
     }
   }
 
-  //метод добавления слушателей для каждого поля ввода
+    //* СЛУШАТЕЛИ input'ов *
   _setEventListeners() {
     const inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
     const buttonElement = this._formElement.querySelector(this._submitBtnSelector);
@@ -73,8 +75,8 @@ export default class FormValidator {
     });
   }
 
-  //метод сброса результатов проверки формы
-  resetValidationState() {
+    // УДАЛЕНИЕ ОШИБОК ВАЛИДАЦИИ
+  deleteValidationError() {
     const form = this._formElement.querySelector(this._formSelector);
     const inputsArr = Array.from(form.querySelectorAll(this._inputSelector));
     const buttonElement = form.querySelector(this._submitBtnSelector);
@@ -86,7 +88,7 @@ export default class FormValidator {
     });
   }
 
-  //метод включения валидации
+  //ВАЛИДАЦИЯ ФОРМ
   enableValidation() {
     this._setEventListeners();
   }

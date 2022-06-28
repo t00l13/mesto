@@ -24,28 +24,28 @@ const initialCards = [
       link: 'https://i.ibb.co/rxMXPKR/pic1.png'
     },
     {
-      name: 'Архыз',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+      name: 'Стич с лягушкой',
+      link: 'https://avatarko.ru/img/kartinka/33/multfilm_lyagushka_32117.jpg'
     },
     {
-      name: 'Челябинская область',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+      name: 'Стич с сердечкой',
+      link: 'https://abrakadabra.fun/uploads/posts/2021-12/thumbs/1640681784_34-abrakadabra-fun-p-stich-zastavka-na-telefon-34.jpg'
     },
     {
-      name: 'Иваново',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+      name: 'Толя и Настя',
+      link: 'https://abrakadabra.fun/pic77.php?src=https://abrakadabra.fun/uploads/posts/2022-01/thumbs/1641835202_1-abrakadabra-fun-p-parnie-avi-stich-10.jpg&w=268&h=402&zc=1'
     },
     {
-      name: 'Камчатка',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+      name: 'Толя с майки',
+      link: 'https://kartinkin.net/uploads/posts/2022-02/1645098154_3-kartinkin-net-p-kartinki-sticha-3.jpg'
     },
     {
-      name: 'Холмогорский район',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+      name: 'Стич со звездой',
+      link: 'https://klike.net/uploads/posts/2020-06/1591514925_11.jpg'
     },
     {
-      name: 'Байкал',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+      name: 'Стич хочет быть похожим на меня',
+      link: 'https://avatarko.ru/img/kartinka/30/multfilm_29845.jpg'
     },
   ];
 
@@ -65,7 +65,7 @@ const initialCards = [
     elementSelector : '.gallery__list',
     profileNameSelector : '.profile__name',
     profileJobSelector : '.profile__job',
-    cardId: '#card',
+    cardId: '.card-template',
   }
   const container = document.querySelector('.container');
   const buttonEditProfile = container.querySelector('.profile__button-edit');
