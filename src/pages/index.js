@@ -28,7 +28,6 @@ function handlePopupProfile(inputsData) {
 }
 
 function handlePopupAddCard(inputsData) {
-  console.log(cardList);
   cardList.addItem(createCard(inputsData));
   popupWithCard.close();
 }
