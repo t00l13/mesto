@@ -9,19 +9,19 @@
   <div class="container">
 
     <header class="header">
-      <img src="./images/header__logo.svg" alt="Логотип" class="header__logo logo">
+      <img src="<%=require('./images/header__logo.svg')%>" alt="Логотип" class="header__logo logo">
     </header>
 
     <main class="main">
 
       <section class="profile">
-        <img src="./images/profile__avatar.png" alt="Аватар пользователя" class="profile__avatar">
+        <img src="<%=require('./images/profile__avatar.png')%>" alt="Аватар пользователя" class="profile__avatar">
         <div class="profile__content">
           <div class="profile__wrapper">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
             <button type="button" class="profile__button-edit"></button>
           </div>
-          <p class="profile__job">В поиске работы: +79268283137</p>
+          <p class="profile__job">В поиске работы</p>
         </div>
         <button type="button" class="profile__button-add"></button>
       </section>

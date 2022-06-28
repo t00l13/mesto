@@ -7,13 +7,13 @@ export default class UserInfo {
 
   getUserInfo() {
     return this._profileData = {
-      popupName: this._elementName.textContent,
-      popupJob: this._elementJob.textContent,
+      name: this._elementName.textContent,
+      job: this._elementJob.textContent,
     };
   }
 
-  setUserInfo ({popupName, popupJob}) {
-    this._elementName.textContent = popupName;
-    this._elementJob.textContent = popupJob;
+  setUserInfo ({ name, job }) {
+    this._elementName.textContent = name;
+    this._elementJob.textContent = job;
   }
 }

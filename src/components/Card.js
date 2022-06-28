@@ -1,5 +1,5 @@
 export default class Card {
-    constructor(data, templateSelector, showFunction) {
+    constructor({data, showFunction}, templateSelector) {
         this._name = data.name;
         this._link = data.link;
         this._templateSelector = templateSelector;
@@ -14,22 +14,6 @@ export default class Card {
             .cloneNode(true);
 
         return cardElement;
-    }
-
-    generateCard() {
-        this._card = this._getTemplate();
-        
-        this._likeButton = this._card.querySelector('.card__btn-like');
-        this._trashButton = this._card.querySelector('.card__btn-trash');
-        this._cardImage = this._card.querySelector('.card__image');
-        this._setEventListeners();
-
-        this._card.querySelector('.card__title').textContent = this._name;
-
-        this._cardImage.src = this._link;
-        this._cardImage.alt = this._name;
-
-        return this._card;
     }
 
     _setEventListeners() {
@@ -54,4 +38,20 @@ export default class Card {
         this._card.remove();
         this._card = null;
     }
+      generateCard() {
+            this._card = this._getTemplate();
+
+            this._likeButton = this._card.querySelector('.card__btn-like');
+            this._trashButton = this._card.querySelector('.card__btn-trash');
+            this._cardImage = this._card.querySelector('.card__image');
+            this._cardTitle = this._card.querySelector('.card__title');
+            this._setEventListeners();
+
+            this._cardTitle.textContent = this._name;
+            this._cardImage.src = this._link;
+            this._cardImage.alt = this._name;
+
+
+            return this._card;
+        }
 };

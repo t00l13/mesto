@@ -1,8 +1,14 @@
 import './index.css';
 
-import { initialCards, validateObject, selectorObject, buttonEditProfile, buttonAddCard, popupProfileInputs } from '../utils/constants.js';
+import { initialCards,
+         validateObject,
+         selectorObject,
+         buttonEditProfile,
+         buttonAddCard,
+         popupProfileInputs,
+        } from '../utils/constants.js';
 
-import Card from '../components/Card.js"';
+import Card from '../components/Card.js';
 import FormValidator from '../components/FormValidator.js';
 import Section from '../components/Section.js';
 import PopupWithForm from '../components/PopupWithForm.js';
@@ -11,14 +17,14 @@ import UserInfo from '../components/UserInfo.js';
 
 // ФУНКЦИИ
 //функция показа картинки
-function handleCardClick(title,link) {
+function showFunction(title, link) {
   popupWithImage.open(title, link);
 }
 
 //функция отправки редактирования профиля
 function handlePopupProfile(inputsData) {
   userInfo.setUserInfo(inputsData);
-  popupFormProfile.close();
+  popupWithProfile.close();
 }
 
 function handleTextInput() {
@@ -29,7 +35,7 @@ function handleTextInput() {
 }
 
 function createCard(dataCard) {
-  const card = new Card ({data: dataCard, handleCardClick}, selectorObject.cardId);
+  const card = new Card ({data: dataCard, showFunction}, selectorObject.cardId);
   const newCard = card.generateCard();
 
   return newCard;
@@ -37,21 +43,21 @@ function createCard(dataCard) {
 
 function handlePopupAddCard(inputsData) {
   cardList.addItem(createCard(inputsData));
-  popupFormAddCard.close();
+  popupWithCard.close();
 }
 
 //СЛУШАТЕЛИ
 
 buttonEditProfile.addEventListener('click', () => {
-  popupFormProfile.open();
+  popupWithProfile.open();
   handleTextInput();
-  validFormPopupEditProfile.deleteValidationError();
+  validFormPopupEditProfile.resetValidationState();
 });
 
 buttonAddCard.addEventListener('click', () => {
-  popupFormAddCard();
-  validFormPopupAddPhoto.deleteValidationError();
-})
+  popupWithCard.open();
+  validFormPopupAddPhoto.resetValidationState();
+});
 
 const cardList = new Section(
   {
@@ -68,21 +74,21 @@ const popupWithImage = new PopupWithImage(selectorObject.popupImageSelector);
 popupWithImage.setEventListeners();
 
 const popupWithProfile = new PopupWithForm(selectorObject.popupProfileSelector, handlePopupProfile);
-popupFormProfile.setEventListeners();
+popupWithProfile.setEventListeners();
 
-const popupFormAddCard = new PopupWithForm(selectorObject.popupAddCardSelector,handlePopupAddCard);
-popupFormAddCard.setEventListeners();
+const popupWithCard = new PopupWithForm(selectorObject.popupAddCardSelector, handlePopupAddCard);
+popupWithCard.setEventListeners();
 
 
 //ВКЛ ВАЛИДАЦИЯ НА ПОПАП ДОБАВЛЕНИЯ КАРТОЧКИ
-const validFormPopupAddPhoto = new FormValidator(validateObject, popupAddPhoto);
+const validFormPopupAddPhoto = new FormValidator(validateObject, selectorObject.popupAddCardSelector);
 validFormPopupAddPhoto.enableValidation();
 //ВКЛ ВАЛИДАЦИЯ НА ПОПАП НА РЕДАКТИРОВАНИЕ КАРТОЧКИ
-const validFormPopupEditProfile = new FormValidator(validateObject, popupEditProfile);
+const validFormPopupEditProfile = new FormValidator(validateObject, selectorObject.popupProfileSelector);
 validFormPopupEditProfile.enableValidation();
 
 
 const userInfo = new UserInfo({
   selectorName: selectorObject.profileNameSelector,
-  selecotrJob: selectorObject.profileJobSelector
+  selectorJob: selectorObject.profileJobSelector,
 });
