@@ -6,6 +6,8 @@ import { initialCards,
          buttonEditProfile,
          buttonAddCard,
          popupProfileInputs,
+         popupEditProfile,
+         popupAddCard,
         } from '../utils/constants.js';
 
 import Card from '../components/Card.js';
@@ -42,10 +44,8 @@ function handleTextInput() {
 
 function createCard(dataCard) {
   const card = new Card ({data: dataCard, showFunction}, selectorObject.cardId);
-  const newCard = card.generateCard();
-
-  return newCard;
-}
+  return card.generateCard();
+} 
 
 //СЛУШАТЕЛИ
 
@@ -82,10 +82,10 @@ popupWithCard.setEventListeners();
 
 
 //ВКЛ ВАЛИДАЦИЯ НА ПОПАП ДОБАВЛЕНИЯ КАРТОЧКИ
-const validFormPopupAddPhoto = new FormValidator(validateObject, selectorObject.popupAddCardSelector);
+const validFormPopupAddPhoto = new FormValidator(validateObject, popupAddCard);
 validFormPopupAddPhoto.enableValidation();
 //ВКЛ ВАЛИДАЦИЯ НА ПОПАП НА РЕДАКТИРОВАНИЕ КАРТОЧКИ
-const validFormPopupEditProfile = new FormValidator(validateObject, selectorObject.popupProfileSelector);
+const validFormPopupEditProfile = new FormValidator(validateObject, popupEditProfile);
 validFormPopupEditProfile.enableValidation();
 
 

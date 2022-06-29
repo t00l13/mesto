@@ -71,6 +71,7 @@ const initialCards = [
   const buttonEditProfile = container.querySelector('.profile__button-edit');
   const buttonAddCard = container.querySelector('.profile__button-add');
   const popupEditProfile = document.querySelector('.popup_type_edit-profile');
+  const popupAddCard = document.querySelector('.popup_type_add-photo');
   const popupProfileInputs = popupEditProfile.querySelectorAll('.popup__input');
 
   export {
@@ -80,4 +81,6 @@ const initialCards = [
     buttonAddCard,
     buttonEditProfile,
     popupProfileInputs,
+    popupEditProfile,
+    popupAddCard,
   }
