@@ -9,6 +9,12 @@ export default class Api {
         this._token = headers['authorization'];
     }
 
+    _handleResponse (res) {
+        if(res.ok) {
+            return res.json();
+        }
+        return Promise.reject(`Что-то не так, ошибка: ${res.status}`);
+    }
     //--- МЕТОД ПОЛУЧЕНИЯ ИНФОРМАЦИИ ПОЛЬЗОВАТЕЛЯ
     getUserData(){
         return fetch(this._userUrl, {
@@ -16,12 +22,7 @@ export default class Api {
                 authorization: this._token,
             }
         })
-        .then(res => {
-            if(res.ok){
-                return res.json();
-            }
-            return Promise.reject(`Что-то не так, ошибка: ${res.status}`);
-        })
+        .then( this._handleResponse)
     }
     //--- МЕТОД СОХРАНЕНИЯ ИНФОРМАЦИИ ИНФОРМАЦИИ ПОЛЬЗОВАТЕЛЯ
     saveUserChanges({ name, about }) {
@@ -36,12 +37,7 @@ export default class Api {
                 about: about,
             })
         })
-        .then(res => {
-            if (res.ok) {
-                return res.json();
-            }
-            return Promise.reject(`Что-то не так, ошибка: ${res.status}`);
-        })
+        .then(this._handleResponse)
     }
     //--- МЕТОД СМЕНЫ АВАТАРА ПОЛЬЗОВАТЕЛЯ
     changeAvatar(src) {
@@ -55,12 +51,7 @@ export default class Api {
                 avatar: src.link
             })
         })
-        .then(res => {
-            if(res.ok) {
-                return res.json();
-            }
-            return Promise.reject(`Что-то не так, ошибка: ${res.status}`);
-        })
+        .then(this._handleResponse)
     }
     //--- МЕТОД ПОЛУЧЕНИЯ КАРТОЧЕК С СЕРВЕРА
     getInitialCards() {
@@ -69,12 +60,7 @@ export default class Api {
                 authorization:this._token,
             }
         })
-        .then(res => {
-            if (res.ok) {
-                return res.json();
-            }
-            return Promise.reject(`Что-то не так, ошибка: ${res.status}`);
-        })
+        .then(this._handleResponse)
     }
     //--- МЕТОД ПУБЛИКАЦИИ НОВОЙ КАРТОЧКИ 
     postNewCard({ name, link }) {
@@ -89,12 +75,7 @@ export default class Api {
                 link: link
             }) 
         })
-        .then(res => {
-            if(res.ok) {
-                return res.json();
-            }
-            return Promise.reject(`Что-то не так, ошибка: ${res.status}`);
-        })
+        .then(this._handleResponse)
     }
     //--- МЕТОД УДАЛЕНИЕ КАРТОЧКИ
     deleteCard(cardId){
@@ -104,12 +85,7 @@ export default class Api {
                 authorization: this._token,
             }
         })
-        .then(res => {
-            if(res.ok) {
-                return res.json()
-            }
-            return Promise.reject(`Что-то не так, ошибка: ${res.status}`);
-        })
+        .then(this._handleResponse)
     }
     //--- МЕТОД ЛАЙКА КАРТОЧКИ
     likedCard(cardId) {
@@ -119,12 +95,7 @@ export default class Api {
                 authorization: this._token,
             }
         })
-        .then(res => {
-            if(res.ok) {
-                return res.json()
-            }
-            return Promise.reject(`Что-то не так, ошибка: ${res.status}`);
-        })
+        .then(this._handleResponse)
     }
     //--- МЕТОД УДАЛЕНИЯ ЛАЙКА С КАРТОЧКИ
     dislikedCard(cardId) {
@@ -134,11 +105,6 @@ export default class Api {
                 authorization: this._token,
             }
         })
-        .then(res => {
-            if(res.ok) {
-                return res.json()
-            }
-            return Promise.reject(`Что-то не так, ошибка: ${res.status}`);
-        })
+        .then(this._handleResponse)
     }
 }

@@ -12,10 +12,10 @@ export default class Section {
   }
 
   //это метод который принимает элемент и закидывает в начало контейнера
-  addItem(element) {
+  appendItem(element) {
     this._container.append(element);
   }
-  addItemPrepend(element) {
+  prependItem(element) {
     this._container.prepend(element);
   }
 

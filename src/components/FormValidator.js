@@ -54,7 +54,6 @@ export default class FormValidator {
 
     //* ПОВЕДЕНИЕ КНОПКИ submit ПРИ ВАЛИДНОСТИ И НЕВАЛИДНОСТИ *
   _toggleButtonState() {
-
     if(this._hasInvalidInput()) {
       this._buttonElement.setAttribute('disabled', true);
       this._buttonElement.classList.add(this._inactiveButtonClass);

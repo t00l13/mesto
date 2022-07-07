@@ -1,12 +1,12 @@
 export default class Card {
-    constructor({ data, showFunction, handleLikeClick, handleTrashClick }, templateSelector, userId) {
+    constructor({ data, handleCardImageClick, handleLikeClick, handleTrashClick }, templateSelector, userId) {
         this._templateSelector = templateSelector;
         this._name = data.name;
         this._link = data.link;
         this._idOwner = data.owner._id;
         this._cardId = data._id;
         this._likes = data.likes;
-        this._showPopup = showFunction;
+        this._handleCardImageClick = handleCardImageClick;
         this._handleLikeClick = handleLikeClick;
         this._handleTrashClick = handleTrashClick;
         this._userId = userId;
@@ -66,7 +66,7 @@ export default class Card {
 
     _setEventListeners() {
         this._cardImage.addEventListener('click', () => {
-            this._showPopup(this._name, this._link);
+            this._handleCardImageClick(this._name, this._link);
         });
         this._trashButton.addEventListener('click', () => {
             this._handleTrashClick(this._cardId, this);
