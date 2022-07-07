@@ -1,0 +1,14 @@
+.profile__change-btn{
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    background-image: url('../../../images/change.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: none;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: none;
+}
