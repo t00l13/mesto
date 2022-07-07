@@ -28,9 +28,11 @@ function showFunction(title, link) {
 }
 
 function handleLikeClick(id, isLiked, card) {
+  console.log(card.like);
   if (isLiked) {
     api.dislikedCard(id)
       .then((data) => {
+        console.log(data)
         card.setLikes(data.likes);
       })
       .catch((err) => {
@@ -126,8 +128,7 @@ function createCard(dataCard, id) {
     showFunction,
     handleLikeClick,
     handleTrashClick,
-  }, selectorObject.cardId,
-  id);
+  }, selectorObject.cardId, id);
 
   return card.generateCard();
 } 

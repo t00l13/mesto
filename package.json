@@ -4,7 +4,7 @@
   "description": "Проектная работа 7 для ЯндексПрактикум выполнена в форме лендинга. ## Стек * HTML * CSS * JavaScript",
   "main": "index.js",
   "scripts": {
-    "build": "rimraf",
+    "build": "webpack --mode production",
     "dev": "webpack serve",
     "deploy": "gh-pages -d dist",
     "predeploy": "npm run build"
